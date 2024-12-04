@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contador</title>
+    <link rel="stylesheet" href="style.css ">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <div class="padre">
+
+        <div class="general">
+            <span class="numero" id="contador">0</span>
+        </div>
+
+        <div class="reset">
+            <span class="reinicio" id="reset">-</span>
+        </div>
+        
+        <audio id="sonido" src="party-horn-0.2s(mp3cut.net).mp3"></audio>
+    
+    </div>
+    
+    
+<script>
+    
+    const sonido=document.getElementById('sonido')
+    let btn1= document.querySelector('#contador')
+    let contador = document.querySelector("#contador")
+    let reinicio = document.querySelector("#reset")
+
+
+    let a=0;
+    let b=10;
+
+    function reset(){
+        a=0;
+        b=10;
+        contador.innerHTML=a-a;
+        console.log(b);
+    }
+
+    function printclick()
+    {
+        a++;
+        console.log(a);
+        contador.innerHTML= a ;
+
+        if(a==b)
+        {
+            sonido.play();
+
+            confetti();
+
+            b=b+10;
+        }
+
+    }
+
+    btn1.addEventListener('click', printclick);
+    reinicio.addEventListener('click',reset);
+        
+</script>
+
+</body>
+</html>
