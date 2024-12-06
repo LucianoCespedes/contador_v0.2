@@ -9,13 +9,13 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <div class="padre">
+    <div id="fondo" class="padre">
 
-        <div class="general">
+        <div  id="circulo"  class="general">
             <span class="numero" id="contador">0</span>
         </div>
 
-        <div class="reset">
+        <div id="boton_abajp" class="reset">
             <span class="reinicio" id="reset">-</span>
         </div>
         
@@ -24,6 +24,7 @@
     </div>
     
     
+<!--//----------------------------------------------------------------//-->
 <script>
     
     const sonido=document.getElementById('sonido')
@@ -31,6 +32,9 @@
     let contador = document.querySelector("#contador")
     let reinicio = document.querySelector("#reset")
 
+    const fondo =document.getElementById('fondo')
+    const circulo =document.getElementById('circulo')
+    const circulo2= document.getElementById('boton_abajp')
 
     let a=0;
     let b=10;
@@ -39,7 +43,7 @@
         a=0;
         b=10;
         contador.innerHTML=a-a;
-        console.log(b);
+
     }
 
     function printclick()
@@ -57,12 +61,55 @@
             b=b+10;
         }
 
+
+        function estilo1(){
+            fondo.style.background = '#000010';
+            fondo.style.transition ='1.5s';
+            
+            circulo.style.background='#102b53';
+            circulo.style.transition= '1s';
+            circulo.style.boxshadow=' 0 5px 10px #415aa5';
+            circulo.style.color='#dac8ff';
+
+            circulo2.style.background='#102b53' ;
+            circulo2.style.transition= '1s';
+            circulo2.style.boxshadow='0 9px 10px #415aa5';
+            circulo2.style.color='#dac8ff';
+
+        }
+        
+        function estilo2()
+        {
+            fondo.style.background = '#259073';
+            fondo.style.transition ='1.5s';
+            
+            circulo.style.background='#7fda89';
+            circulo.style.transition= '1s';
+            circulo.style.boxshadow=' 0 5px 10px #415aa5';
+            circulo.style.color='#041122';
+
+            circulo2.style.background='#7fda89' ;
+            circulo2.style.transition= '1s';
+            circulo2.style.boxshadow='0 9px 10px #415aa5';
+            circulo2.style.color='#041122';
+        }
+
+
+        if(a==10)
+        {
+            estilo1();
+        }
+        if(a==20)
+        {
+            estilo2();
+        }
+
     }
 
     btn1.addEventListener('click', printclick);
     reinicio.addEventListener('click',reset);
         
 </script>
-
+<!--//----------------------------------------------------------------//-->
 </body>
 </html>
