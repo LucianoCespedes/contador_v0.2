@@ -39,6 +39,7 @@
     font-size: 55px;
     font-weight: 600;
     cursor: pointer;
+    outline: none;
 }
 
 .general:active{
